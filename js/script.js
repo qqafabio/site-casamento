@@ -56,8 +56,8 @@ function inicializarGaleria() {
 
     // Exemplo de como estruturar imagens (será necessário adicionar as imagens reais)
     const imagensPadrao = [
-        // { src: 'images/fotos/foto1.jpg', alt: 'Foto 1' },
-        // { src: 'images/fotos/foto2.jpg', alt: 'Foto 2' },
+        //{ src: 'images/fotos/50reais-naiara-azevedo.jpg', alt: 'Foto 1' },
+        //{ src: 'images/fotos/foto2.jpg', alt: 'Foto 2' },
     ];
 
     if (imagensPadrao.length > 0) {

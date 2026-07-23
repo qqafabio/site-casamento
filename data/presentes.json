@@ -2,50 +2,50 @@
   "presentes": [
     {
       "id": 1,
-      "nome": "Jogo de Cama Premium",
-      "descricao": "Jogo de cama 100% algodão 300 fios, king size",
-      "valor": 299.90,
-      "imagem": "https://via.placeholder.com/280x200?text=Jogo+de+Cama",
+      "nome": "Toma aqui uns 50 reais",
+      "descricao": "Naiara Azevedo - 50 reais",
+      "valor": 50.00,
+      "imagem": "images/presentes/50reais-naiara-azevedo.jpg",
       "link_mercado_livre": "https://www.mercadolivre.com.br"
     },
     {
       "id": 2,
-      "nome": "Jogo de Taças de Vinho",
-      "descricao": "Conjunto com 6 taças de cristal para vinho",
-      "valor": 149.90,
-      "imagem": "https://via.placeholder.com/280x200?text=Taças+de+Vinho",
+      "nome": "Adote um boleto do casal",
+      "descricao": "Temos vários, de todas as cores e tamanhos",
+      "valor": 100.00,
+      "imagem": "images/presentes/adote-um-boleto.png",
       "link_mercado_livre": "https://www.mercadolivre.com.br"
     },
     {
       "id": 3,
-      "nome": "Panela de Pressão",
-      "descricao": "Panela de pressão aço inox 8 litros com válvula de segurança",
+      "nome": "Ajuda com material escolar das crianças",
+      "descricao": "Material escolar para o Bernardo e Mariana",
       "valor": 189.90,
-      "imagem": "https://via.placeholder.com/280x200?text=Panela+de+Pressão",
+      "imagem": "images/presentes/ajuda-material-escolar.jpg",
       "link_mercado_livre": "https://www.mercadolivre.com.br"
     },
     {
       "id": 4,
-      "nome": "Liquidificador",
-      "descricao": "Liquidificador 1000W com 2 velocidades e pulsador",
-      "valor": 199.90,
-      "imagem": "https://via.placeholder.com/280x200?text=Liquidificador",
+      "nome": "Camisa do Corinthians para o Noivo",
+      "descricao": "VAI CORINTHIANS!",
+      "valor": 299.90,
+      "imagem": "images/presentes/camisa-corinthians.jpg",
       "link_mercado_livre": "https://www.mercadolivre.com.br"
     },
     {
       "id": 5,
-      "nome": "Jogo de Toalhas",
-      "descricao": "Jogo com 6 toalhas de banho 100% algodão",
-      "valor": 119.90,
-      "imagem": "https://via.placeholder.com/280x200?text=Toalhas",
+      "nome": "Camisa do Coritiba para a Noiva",
+      "descricao": "DALHE COXA!",
+      "valor": 299.90,
+      "imagem": "images/presentes/camisa-coritiba.png",
       "link_mercado_livre": "https://www.mercadolivre.com.br"
     },
     {
       "id": 6,
-      "nome": "Espelho Decorativo",
-      "descricao": "Espelho decorativo com moldura de madeira 80x60cm",
-      "valor": 249.90,
-      "imagem": "https://via.placeholder.com/280x200?text=Espelho",
+      "nome": "Ajuda para pagar os cartões de crédito do casal",
+      "descricao": "Precisamos de 7 mil pessoas com 150 reais",
+      "valor": 150.99,
+      "imagem": "images/presentes/cartões-de-crédito.jpeg",
       "link_mercado_livre": "https://www.mercadolivre.com.br"
     }
   ]
