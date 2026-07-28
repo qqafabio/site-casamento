@@ -2,9 +2,9 @@
   "presentes": [
     {
       "id": 1,
-      "nome": "Toma aqui uns 50 reais",
-      "descricao": "Naiara Azevedo - 50 reais",
-      "valor": 50.00,
+      "nome": "Toma aqui uns 150 reais",
+      "descricao": "Naiara Azevedo - 150 reais",
+      "valor": 150.00,
       "imagem": "images/presentes/50reais-naiara-azevedo.jpg",
       "link_mercado_livre": "https://www.mercadolivre.com.br"
     },
@@ -12,7 +12,7 @@
       "id": 2,
       "nome": "Adote um boleto do casal",
       "descricao": "Temos vários, de todas as cores e tamanhos",
-      "valor": 100.00,
+      "valor": 150.99,
       "imagem": "images/presentes/adote-um-boleto.png",
       "link_mercado_livre": "https://www.mercadolivre.com.br"
     },
@@ -46,6 +46,118 @@
       "descricao": "Precisamos de 7 mil pessoas com 150 reais",
       "valor": 150.99,
       "imagem": "images/presentes/cartões-de-crédito.jpeg",
+      "link_mercado_livre": "https://www.mercadolivre.com.br"
+    },
+    {
+      "id": 7,
+      "nome": "Ajuda para pagar os cartões de crédito do casal",
+      "descricao": "Precisamos de 7 mil pessoas com 150 reais",
+      "valor": 150.99,
+      "imagem": "images/presentes/cesta-chocolate.jpg",
+      "link_mercado_livre": "https://www.mercadolivre.com.br"
+    },
+    {
+      "id": 8,
+      "nome": "Ajuda para pagar os cartões de crédito do casal",
+      "descricao": "Precisamos de 7 mil pessoas com 150 reais",
+      "valor": 150.99,
+      "imagem": "images/presentes/convite-primeiro-churrasco-casa.jpg",
+      "link_mercado_livre": "https://www.mercadolivre.com.br"
+    },
+    {
+      "id": 9,
+      "nome": "Ajuda para pagar os cartões de crédito do casal",
+      "descricao": "Precisamos de 7 mil pessoas com 150 reais",
+      "valor": 150.99,
+      "imagem": "images/presentes/escolha-uma-musica-festa.png",
+      "link_mercado_livre": "https://www.mercadolivre.com.br"
+    },
+    {
+      "id": 10,
+      "nome": "Ajuda para pagar os cartões de crédito do casal",
+      "descricao": "Precisamos de 7 mil pessoas com 150 reais",
+      "valor": 150.99,
+      "imagem": "images/presentes/falar-mal-ou-dar-palpite.jpg",
+      "link_mercado_livre": "https://www.mercadolivre.com.br"
+    },
+    {
+      "id": 11,
+      "nome": "Ajuda para pagar os cartões de crédito do casal",
+      "descricao": "Precisamos de 7 mil pessoas com 150 reais",
+      "valor": 150.99,
+      "imagem": "images/presentes/fila-buffet.jpg",
+      "link_mercado_livre": "https://www.mercadolivre.com.br"
+    },
+    {
+      "id": 12,
+      "nome": "Ajuda para pagar os cartões de crédito do casal",
+      "descricao": "Precisamos de 7 mil pessoas com 150 reais",
+      "valor": 150.99,
+      "imagem": "images/presentes/Milagre.png",
+      "link_mercado_livre": "https://www.mercadolivre.com.br"
+    },
+    {
+      "id": 13,
+      "nome": "Ajuda para pagar os cartões de crédito do casal",
+      "descricao": "Precisamos de 7 mil pessoas com 150 reais",
+      "valor": 150.99,
+      "imagem": "images/presentes/nova-lente-maquina.jpg",
+      "link_mercado_livre": "https://www.mercadolivre.com.br"
+    },
+    {
+      "id": 14,
+      "nome": "Ajuda para pagar os cartões de crédito do casal",
+      "descricao": "Precisamos de 7 mil pessoas com 150 reais",
+      "valor": 150.99,
+      "imagem": "images/presentes/perguntar-quando-teremos-filhos.png",
+      "link_mercado_livre": "https://www.mercadolivre.com.br"
+    },
+    {
+      "id": 15,
+      "nome": "Ajuda para pagar os cartões de crédito do casal",
+      "descricao": "Precisamos de 7 mil pessoas com 150 reais",
+      "valor": 150.99,
+      "imagem": "images/presentes/pote-buffet.png",
+      "link_mercado_livre": "https://www.mercadolivre.com.br"
+    },
+    {
+      "id": 16,
+      "nome": "Ajuda para pagar os cartões de crédito do casal",
+      "descricao": "Precisamos de 7 mil pessoas com 150 reais",
+      "valor": 150.99,
+      "imagem": "images/presentes/primeiro-pedaço-bolo.png",
+      "link_mercado_livre": "https://www.mercadolivre.com.br"
+    },
+    {
+      "id": 17,
+      "nome": "Ajuda para pagar os cartões de crédito do casal",
+      "descricao": "Precisamos de 7 mil pessoas com 150 reais",
+      "valor": 150.99,
+      "imagem": "images/presentes/pular-voce-na-hora-de-cortar-gravata.png",
+      "link_mercado_livre": "https://www.mercadolivre.com.br"
+    },
+    {
+      "id": 18,
+      "nome": "Ajuda para pagar os cartões de crédito do casal",
+      "descricao": "Precisamos de 7 mil pessoas com 150 reais",
+      "valor": 150.99,
+      "imagem": "images/presentes/racao-melvim.png",
+      "link_mercado_livre": "https://www.mercadolivre.com.br"
+    },
+    {
+      "id": 19,
+      "nome": "Ajuda para pagar os cartões de crédito do casal",
+      "descricao": "Precisamos de 7 mil pessoas com 150 reais",
+      "valor": 150.99,
+      "imagem": "images/presentes/seja-nosso-parente-favorito.jpg",
+      "link_mercado_livre": "https://www.mercadolivre.com.br"
+    },
+    {
+      "id": 20,
+      "nome": "Ajuda para pagar os cartões de crédito do casal",
+      "descricao": "Precisamos de 7 mil pessoas com 150 reais",
+      "valor": 150.99,
+      "imagem": "images/presentes/seu-barriga.jpg",
       "link_mercado_livre": "https://www.mercadolivre.com.br"
     }
   ]
