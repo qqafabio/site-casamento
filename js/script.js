@@ -1,9 +1,15 @@
 // Mobile Menu Toggle
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
+const navbar = document.querySelector('.navbar');
 
 menuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
+});
+
+// Solidify navbar background once the user scrolls past the hero image
+window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
 });
 
 // Close menu when a link is clicked
@@ -49,42 +55,66 @@ function renderizarPresentes(presentes) {
 }
 
 // Gallery functionality
-function inicializarGaleria() {
-    // Verifica se há imagens na pasta images/fotos/
-    // Por enquanto, mostra placeholder. As imagens devem ser adicionadas pelo usuário
+async function inicializarGaleria() {
     const galleryGrid = document.getElementById('galleryGrid');
 
-    // Exemplo de como estruturar imagens (será necessário adicionar as imagens reais)
-    const imagensPadrao = [
-        //{ src: 'images/fotos/50reais-naiara-azevedo.jpg', alt: 'Foto 1' },
-        //{ src: 'images/fotos/foto2.jpg', alt: 'Foto 2' },
-    ];
-
-    if (imagensPadrao.length > 0) {
-        galleryGrid.innerHTML = '';
-        imagensPadrao.forEach((img, index) => {
-            const item = document.createElement('div');
-            item.className = 'gallery-item';
-            item.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
-            item.addEventListener('click', () => abrirModal(img.src, img.alt));
-            galleryGrid.appendChild(item);
-        });
+    try {
+        const response = await fetch('data/galeria.json');
+        const data = await response.json();
+        renderizarGaleria(data.fotos);
+    } catch (error) {
+        console.error('Erro ao carregar galeria:', error);
+        galleryGrid.innerHTML =
+            '<p class="gallery-placeholder">Erro ao carregar as fotos. Verifique o arquivo galeria.json</p>';
     }
+}
+
+function renderizarGaleria(fotos) {
+    const galleryGrid = document.getElementById('galleryGrid');
+
+    if (!fotos || fotos.length === 0) {
+        return;
+    }
+
+    const imagens = fotos.map((foto, index) => ({
+        src: `images/fotos/${encodeURIComponent(foto.arquivo)}`,
+        alt: foto.descricao || `Foto ${index + 1} do casal`,
+        descricao: foto.descricao || ''
+    }));
+
+    galleryGrid.innerHTML = '';
+    imagens.forEach((img, index) => {
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+        item.style.animationDelay = `${index * 70}ms`;
+        item.innerHTML = `
+            <span class="photo-frame">
+                <img src="${img.src}" alt="${img.alt}" loading="lazy">
+            </span>
+            <p class="gallery-caption">${img.descricao}</p>
+        `;
+        item.addEventListener('click', () => abrirModal(img.src, img.alt, img.descricao));
+        galleryGrid.appendChild(item);
+    });
 }
 
 // Modal functions
 const modal = document.getElementById('imageModal');
 const modalImage = document.getElementById('modalImage');
+const modalCaption = document.getElementById('modalCaption');
 const modalClose = document.getElementById('modalClose');
 
-function abrirModal(src, alt) {
-    modal.style.display = 'block';
+function abrirModal(src, alt, descricao = '') {
     modalImage.src = src;
     modalImage.alt = alt;
+    modalCaption.textContent = descricao;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
 }
 
 function fecharModal() {
-    modal.style.display = 'none';
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
 }
 
 modalClose.addEventListener('click', fecharModal);
