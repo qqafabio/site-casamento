@@ -396,6 +396,154 @@ a:hover {
     border: 2px dashed var(--border);
 }
 
+/* Guest Message Board */
+.mural {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--white);
+}
+
+.mural-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--gray);
+}
+
+.mural-form {
+    max-width: 560px;
+    margin: 0 auto var(--spacing-xl);
+    background-color: var(--light);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(184, 144, 95, 0.15);
+}
+
+.mural-form-row {
+    margin-bottom: var(--spacing-md);
+}
+
+.mural-form-row label {
+    display: block;
+    font-weight: 600;
+    color: var(--secondary);
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.9rem;
+}
+
+.mural-form-row input,
+.mural-form-row textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    color: var(--dark);
+    background-color: var(--white);
+    transition: var(--transition);
+    resize: vertical;
+}
+
+.mural-form-row input:focus,
+.mural-form-row textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(184, 144, 95, 0.2);
+}
+
+.mural-honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.btn-mural-submit {
+    display: block;
+    width: 100%;
+    background-color: var(--terracotta);
+    color: var(--white);
+    padding: var(--spacing-sm);
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-mural-submit:hover {
+    background-color: var(--secondary);
+}
+
+.btn-mural-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.mural-feedback {
+    margin: var(--spacing-sm) 0 0;
+    text-align: center;
+    font-size: 0.9rem;
+    min-height: 1.2rem;
+}
+
+.mural-feedback-sucesso {
+    color: #2e7d4f;
+}
+
+.mural-feedback-erro {
+    color: #c0392b;
+}
+
+.mural-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.mural-aviso {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--gray);
+    padding: var(--spacing-md);
+}
+
+.recado-card {
+    background-color: var(--light);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    border-left: 3px solid var(--terracotta);
+    box-shadow: 0 4px 10px rgba(20, 18, 15, 0.08);
+    transition: var(--transition);
+}
+
+.recado-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(20, 18, 15, 0.15);
+}
+
+.recado-mensagem {
+    font-style: italic;
+    color: var(--dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.recado-nome {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    color: var(--terracotta);
+    margin-bottom: 0;
+}
+
+.recado-data {
+    font-size: 0.75rem;
+    color: var(--gray);
+    margin-bottom: 0;
+}
+
 /* Gifts Section */
 .presentes {
     padding: var(--spacing-xl) var(--spacing-md);
@@ -497,6 +645,13 @@ a:hover {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-lg);
+}
+
+.footer-locations {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    grid-column: span 2;
 }
 
 .footer-section h3 {
@@ -717,6 +872,19 @@ a:hover {
 
     .footer-content {
         grid-template-columns: 1fr;
+    }
+
+    .footer-locations {
+        grid-column: span 1;
+        gap: var(--spacing-sm);
+    }
+
+    .footer-locations .footer-section h3 {
+        font-size: 0.95rem;
+    }
+
+    .footer-locations .footer-section p {
+        font-size: 0.85rem;
     }
 
     h1, h2, h3 {

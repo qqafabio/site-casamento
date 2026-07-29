@@ -19,6 +19,7 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#evento">Evento</a></li>
                 <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#mural">Mural</a></li>
                 <li><a href="#presentes">Presentes</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
@@ -39,7 +40,7 @@
     <!-- Event Information -->
     <section class="evento" id="evento">
         <div class="container">
-            <h2 class="section-title">Sobre o Evento</h2>
+            <h2 class="section-title">O Casamento</h2>
 
             <div class="evento-grid">
                 <div class="evento-card">
@@ -68,7 +69,7 @@
             </div>
 
             <div class="evento-description">
-                <h3>Descrição do Evento</h3>
+                <h3>Nossa história</h3>
                 <p>
                     Nosso grande dia está chegando e queremos vivê-lo ao lado de pessoas especiais como vocês!
                     Preparamos uma cerimônia emocionante seguida de uma festa inesquecível. Contamos com a sua
@@ -91,6 +92,32 @@
         </div>
     </section>
 
+    <!-- Guest Message Board -->
+    <section class="mural" id="mural">
+        <div class="container">
+            <h2 class="section-title">Mural de Recados</h2>
+            <p class="mural-subtitle">Deixe uma mensagem carinhosa para os noivos</p>
+
+            <form class="mural-form" id="muralForm">
+                <div class="mural-form-row">
+                    <label for="muralNome">Seu nome</label>
+                    <input type="text" id="muralNome" name="nome" maxlength="60" placeholder="Como podemos te chamar?" required>
+                </div>
+                <div class="mural-form-row">
+                    <label for="muralMensagem">Sua mensagem</label>
+                    <textarea id="muralMensagem" name="mensagem" maxlength="400" rows="4" placeholder="Escreva um recado carinhoso para o casal..." required></textarea>
+                </div>
+                <input type="text" id="muralHoneypot" name="site" class="mural-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <button type="submit" class="btn btn-mural-submit" id="muralSubmitBtn">Enviar Recado</button>
+                <p class="mural-feedback" id="muralFeedback"></p>
+            </form>
+
+            <div class="mural-lista" id="muralLista">
+                <p class="mural-aviso">Carregando recados...</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Gifts Section -->
     <section class="presentes" id="presentes">
         <div class="container">
@@ -108,7 +135,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Contato</h3>
-                    <p>Email: fabiomorais.fmds@gmail.com / cibelelaralara@gmail.com</p>
+                    <p>Email: cibelelaralara@gmail.com / fabiomorais.fmds@gmail.com</p>
                     <p>Telefone: (41) 93300-7322 / (41) 99602-5409</p>
                 </div>
 
@@ -128,14 +155,16 @@
                     </p>
                 </div>
 
-                <div class="footer-section">
-                    <h3>Local da Cerimônia</h3>
-                    <p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Santu%C3%A1rio%20de%20Nossa%20Senhora%20do%20Sagrado%20Cora%C3%A7%C3%A3o%20-%20R.%20Nicola%20Pellanda%2C%20545%20-%20Pinheirinho%2C%20Curitiba%20-%20PR%2C%2081880-000" target="_blank" rel="noopener noreferrer" title="Ver no Google Maps">Santuário de Nossa Senhora do Sagrado Coração - R. Nicola Pellanda, 545 - Pinheirinho, Curitiba - PR, 81880-000</a></p>
-                </div>
+                <div class="footer-locations">
+                    <div class="footer-section">
+                        <h3>Local da Cerimônia</h3>
+                        <p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Santu%C3%A1rio%20de%20Nossa%20Senhora%20do%20Sagrado%20Cora%C3%A7%C3%A3o%20-%20R.%20Nicola%20Pellanda%2C%20545%20-%20Pinheirinho%2C%20Curitiba%20-%20PR%2C%2081880-000" target="_blank" rel="noopener noreferrer" title="Ver no Google Maps">Santuário de Nossa Senhora do Sagrado Coração - R. Nicola Pellanda, 545 - Pinheirinho, Curitiba - PR, 81880-000</a></p>
+                    </div>
 
-                <div class="footer-section">
-                    <h3>Local da Recepção</h3>
-                    <p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Casa%20Portugal%20Espa%C3%A7o%20para%20Eventos%20-%20R.%20Pedro%20Nolasco%20Pizzatto%2C%20228%20-%20Esta%C3%A7%C3%A3o%2C%20Arauc%C3%A1ria%20-%20PR%2C%2083705-171" target="_blank" rel="noopener noreferrer" title="Ver no Google Maps">Casa Portugal Espaço para Eventos - R. Pedro Nolasco Pizzatto, 228 - Estação, Araucária - PR, 83705-171</a></p>
+                    <div class="footer-section">
+                        <h3>Local da Recepção</h3>
+                        <p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Casa%20Portugal%20Espa%C3%A7o%20para%20Eventos%20-%20R.%20Pedro%20Nolasco%20Pizzatto%2C%20228%20-%20Esta%C3%A7%C3%A3o%2C%20Arauc%C3%A1ria%20-%20PR%2C%2083705-171" target="_blank" rel="noopener noreferrer" title="Ver no Google Maps">Casa Portugal Espaço para Eventos - R. Pedro Nolasco Pizzatto, 228 - Estação, Araucária - PR, 83705-171</a></p>
+                    </div>
                 </div>
             </div>
             <p class="footer-bottom">&copy; 2027 Cibele & Fábio. Todos os direitos reservados.</p>
@@ -152,5 +181,6 @@
     </div>
 
     <script src="js/script.js"></script>
+    <script type="module" src="js/mural.js"></script>
 </body>
 </html>
