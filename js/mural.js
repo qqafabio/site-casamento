@@ -21,6 +21,8 @@ import {
     serverTimestamp
 } from 'https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js';
 
+// Estes valores identificam o projeto publicamente (não são segredo); a proteção real
+// vem das regras do Firestore e da restrição de domínio da API key no Google Cloud Console.
 const firebaseConfig = {
     apiKey: "AIzaSyBdroefdAobwTpjxw1Qs8xSfik_HMSIzgQ",
     authDomain: "recados-site-casamento.firebaseapp.com",

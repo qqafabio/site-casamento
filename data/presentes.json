@@ -20,7 +20,7 @@
       "id": 3,
       "nome": "Ajuda com material escolar das crianças",
       "descricao": "Material escolar para o Bernardo e Mariana",
-      "valor":289.91,
+      "valor": 289.91,
       "imagem": "images/presentes/ajuda-material-escolar.jpg",
       "link_mercado_livre": "https://mpago.la/23U8bmX"
     },
@@ -100,7 +100,7 @@
       "id": 13,
       "nome": "Uma lente nova para a máquina da Cibele",
       "descricao": "Vamos precisar tirar muitas fotos para pagar o casamento",
-      "valor": 1050.99,
+      "valor": 2550.99,
       "imagem": "images/presentes/nova-lente-maquina.jpg",
       "link_mercado_livre": "https://mpago.la/1riPrDd"
     },
@@ -159,6 +159,14 @@
       "valor": 1050.99,
       "imagem": "images/presentes/seu-barriga.jpg",
       "link_mercado_livre": "https://mpago.la/34oh7UT"
+    },
+    {
+      "id": 21,
+      "nome": "Taxa para convidar alguém que não foi convidado",
+      "descricao": "Se você quiser convidar alguém que não foi convidado, vai ter que pagar uma taxa",
+      "valor": 2011.99,
+      "imagem": "images/presentes/taxa-convidar.png",
+      "link_mercado_livre": "https://mpago.la/1usYQji"
     }
   ]
 }
