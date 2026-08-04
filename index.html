@@ -18,6 +18,7 @@
             <button class="menu-toggle" id="menuToggle">☰</button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#evento">Evento</a></li>
+                <li><a href="#manual">Guia do Convidado</a></li>
                 <li><a href="#galeria">Galeria</a></li>
                 <li><a href="#mural">Mural</a></li>
                 <li><a href="#presentes">Presentes</a></li>
@@ -76,6 +77,28 @@
                     presença para celebrar esse novo capítulo com muito amor, música e alegria.
                 </p>
             </div>
+        </div>
+    </section>
+
+    <!-- Guest Guide Carousel -->
+    <section class="manual" id="manual">
+        <div class="container">
+            <h2 class="section-title">Manual do Convidado</h2>
+            <p class="manual-subtitle">Algumas orientações para aproveitarmos esse dia juntos</p>
+
+            <div class="manual-carousel">
+                <button class="manual-arrow manual-arrow-prev" id="manualPrev" aria-label="Dica anterior">&#10094;</button>
+
+                <div class="manual-track-wrapper">
+                    <div class="manual-track" id="manualTrack">
+                        <!-- Os cartões são carregados por JavaScript -->
+                    </div>
+                </div>
+
+                <button class="manual-arrow manual-arrow-next" id="manualNext" aria-label="Próxima dica">&#10095;</button>
+            </div>
+
+            <div class="manual-dots" id="manualDots"></div>
         </div>
     </section>
 

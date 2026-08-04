@@ -308,6 +308,116 @@ a:hover {
     border-left: 4px solid var(--primary);
 }
 
+/* Guest Guide Carousel */
+.manual {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--white);
+}
+
+.manual-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--gray);
+}
+
+.manual-carousel {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.manual-track-wrapper {
+    overflow: hidden;
+    flex: 1;
+}
+
+.manual-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.manual-card {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    background-color: var(--light);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(184, 144, 95, 0.15);
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.manual-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.manual-card h3 {
+    font-family: var(--font-primary);
+    color: var(--secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.manual-card p {
+    color: var(--gray);
+    line-height: 1.6;
+}
+
+.manual-arrow {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--terracotta);
+    color: var(--white);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.manual-arrow:hover {
+    background-color: var(--secondary);
+}
+
+.manual-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: var(--spacing-md);
+}
+
+.manual-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--border);
+    cursor: pointer;
+    padding: 0;
+    transition: var(--transition);
+}
+
+.manual-dot.active {
+    background-color: var(--terracotta);
+    transform: scale(1.2);
+}
+
+.manual-erro {
+    text-align: center;
+    color: var(--gray);
+    padding: var(--spacing-md);
+}
+
 /* Gallery Section */
 .galeria {
     padding: var(--spacing-xl) var(--spacing-md);
@@ -835,6 +945,21 @@ a:hover {
 
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .manual-carousel {
+        gap: var(--spacing-xs);
+    }
+
+    .manual-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+    }
+
+    .manual-card {
+        padding: var(--spacing-md);
+        min-height: 260px;
     }
 
     .modal-image {

@@ -131,8 +131,103 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+// Guest guide carousel
+async function inicializarManual() {
+    const track = document.getElementById('manualTrack');
+    if (!track) return;
+
+    try {
+        const response = await fetch('data/manual.json');
+        const data = await response.json();
+        renderizarManual(data.orientacoes);
+    } catch (error) {
+        console.error('Erro ao carregar guia do convidado:', error);
+        track.innerHTML = '<p class="manual-erro">Erro ao carregar as orientações. Verifique o arquivo manual.json</p>';
+    }
+}
+
+function renderizarManual(orientacoes) {
+    const track = document.getElementById('manualTrack');
+    const dotsContainer = document.getElementById('manualDots');
+    const prevBtn = document.getElementById('manualPrev');
+    const nextBtn = document.getElementById('manualNext');
+
+    if (!track || !dotsContainer || !orientacoes || orientacoes.length === 0) return;
+
+    track.innerHTML = orientacoes.map(item => `
+        <div class="manual-card">
+            <div class="manual-icon">${item.icone}</div>
+            <h3>${item.titulo}</h3>
+            <p>${item.texto}</p>
+        </div>
+    `).join('');
+
+    dotsContainer.innerHTML = orientacoes
+        .map((_, i) => `<button class="manual-dot" data-index="${i}" aria-label="Ir para dica ${i + 1}"></button>`)
+        .join('');
+
+    const dots = Array.from(dotsContainer.querySelectorAll('.manual-dot'));
+    const total = orientacoes.length;
+    let indiceAtual = 0;
+    let autoplayTimer = null;
+
+    function irParaSlide(indice) {
+        indiceAtual = (indice + total) % total;
+        track.style.transform = `translateX(-${indiceAtual * 100}%)`;
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === indiceAtual));
+    }
+
+    function iniciarAutoplay() {
+        autoplayTimer = setInterval(() => irParaSlide(indiceAtual + 1), 6000);
+    }
+
+    function reiniciarAutoplay() {
+        clearInterval(autoplayTimer);
+        iniciarAutoplay();
+    }
+
+    prevBtn?.addEventListener('click', () => {
+        irParaSlide(indiceAtual - 1);
+        reiniciarAutoplay();
+    });
+
+    nextBtn?.addEventListener('click', () => {
+        irParaSlide(indiceAtual + 1);
+        reiniciarAutoplay();
+    });
+
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            irParaSlide(Number(dot.dataset.index));
+            reiniciarAutoplay();
+        });
+    });
+
+    // Swipe support for touch devices
+    let touchStartX = 0;
+    track.addEventListener('touchstart', (event) => {
+        touchStartX = event.touches[0].clientX;
+    }, { passive: true });
+
+    track.addEventListener('touchend', (event) => {
+        const diferenca = event.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(diferenca) > 40) {
+            irParaSlide(diferenca < 0 ? indiceAtual + 1 : indiceAtual - 1);
+            reiniciarAutoplay();
+        }
+    }, { passive: true });
+
+    const carousel = track.closest('.manual-carousel');
+    carousel?.addEventListener('mouseenter', () => clearInterval(autoplayTimer));
+    carousel?.addEventListener('mouseleave', iniciarAutoplay);
+
+    irParaSlide(0);
+    iniciarAutoplay();
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     carregarPresentes();
     inicializarGaleria();
+    inicializarManual();
 });

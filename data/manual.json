@@ -1,0 +1,49 @@
+{
+  "orientacoes": [
+    {
+      "icone": "🤍",
+      "titulo": "Branco é a cor da noiva",
+      "texto": "Evite escolher looks nessa cor ou em tons muito claros!"
+    },
+    {
+      "icone": "✉️",
+      "titulo": "Convidado não convida!",
+      "texto": "Seu convite é pessoal e intransferível. Além disso, confirme sua presença dentro do prazo para ajudar na organização do evento!"
+    },
+    {
+      "icone": "💒",
+      "titulo": "Participe da cerimônia",
+      "texto": "A cerimônia é o momento mais significativo do casamento."
+    },
+    {
+      "icone": "⏰",
+      "titulo": "Seja pontual",
+      "texto": "Chegar no horário é essencial para não interromper um dos momentos mais importantes do evento. Programe-se para chegar com antecedência!"
+    },
+    {
+      "icone": "🔕",
+      "titulo": "Celular no silencioso",
+      "texto": "Sons de notificação ou ligação podem quebrar a atmosfera do momento."
+    },
+    {
+      "icone": "🍬",
+      "titulo": "Aguarde a liberação da mesa de doces",
+      "texto": "A mesa de doces faz parte da decoração, por isso, aguarde a liberação oficial."
+    },
+    {
+      "icone": "📷",
+      "titulo": "Não atrapalhe os fotógrafos",
+      "texto": "Evite ficar na frente, usar o celular para filmar momentos importantes ou interferir no trabalho deles."
+    },
+    {
+      "icone": "💬",
+      "titulo": "Não faça comentários negativos",
+      "texto": "Cada escolha feita pelos noivos envolve dedicação, planejamento e investimento. Valorize o esforço do casal."
+    },
+    {
+      "icone": "🎀",
+      "titulo": "Decoração não é lembrancinha",
+      "texto": "A decoração faz parte da experiência visual do evento. Não leve para casa, isso pode custar caro para os noivos!"
+    }
+  ]
+}
