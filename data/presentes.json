@@ -130,10 +130,10 @@
     },
     {
       "id": 17,
-      "nome": "Taxa para pular você na hora de cortar a gravata",
-      "descricao": "Se quiser que eu não passe na sua mesa na hora de cortar a gravata, vai ter que pagar uma taxa",
+      "nome": "Taxa para a gente não postar aquela sua foto",
+      "descricao": "Toda festa tem aquela foto que ninguém quer ver. Pague a taxa e ela fica guardada só no HD dos noivos",
       "valor": 252.52,
-      "imagem": "images/presentes/pular-voce-na-hora-de-cortar-gravata.png",
+      "imagem": "images/presentes/nao-postar-foto.svg",
       "link_mercado_livre": "https://mpago.la/1NJjBb6"
     },
     {
