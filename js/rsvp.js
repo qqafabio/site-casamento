@@ -9,7 +9,7 @@
 (function () {
     'use strict';
 
-    const ENDPOINT = 'https://script.google.com/macros/s/AKfycbxxINAGS8UEzW7o5xCylDWl7LBF1UeLC645A5pCK0yzK62FWyq3jwinLw428C7ztdnPoA/exec';
+    const ENDPOINT = 'https://script.google.com/macros/s/AKfycbxweKry7Eq51Aisa2Hf_sXRKdP83Fn4gPyceCFj2a1BAA05jMNrrqDWVYqSbguy1LiD/exec';
 
     const MAX_POR_FAIXA = 8;
     const ATRASO_ABERTURA_MS = 1800;
