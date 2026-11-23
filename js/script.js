@@ -225,9 +225,168 @@ function renderizarManual(orientacoes) {
     iniciarAutoplay();
 }
 
+// Pre-wedding shoot: photo strip + chapters (data/ensaio.json)
+const ENSAIO_PASTA = 'images/ensaio/';
+const ENSAIO_LADO_MINIATURA = 900;
+
+async function inicializarEnsaio() {
+    const capitulosEl = document.getElementById('ensaioCapitulos');
+    const faixaTrack = document.getElementById('faixaTrack');
+
+    try {
+        const response = await fetch('data/ensaio.json');
+        const data = await response.json();
+        renderizarFaixa(faixaTrack, data.faixa);
+        renderizarCapitulos(capitulosEl, data.capitulos);
+    } catch (error) {
+        console.error('Erro ao carregar ensaio:', error);
+        if (capitulosEl) {
+            capitulosEl.innerHTML =
+                '<p style="text-align: center;">Erro ao carregar as fotos do ensaio. Verifique o arquivo ensaio.json</p>';
+        }
+    }
+}
+
+function renderizarFaixa(track, arquivos) {
+    if (!track || !arquivos || arquivos.length === 0) return;
+
+    // A lista é repetida duas vezes: a animação anda metade da largura e recomeça sem salto
+    [...arquivos, ...arquivos].forEach(arquivo => {
+        const img = document.createElement('img');
+        img.src = ENSAIO_PASTA + arquivo;
+        img.alt = '';
+        img.height = 180;
+        img.decoding = 'async';
+        track.appendChild(img);
+    });
+}
+
+function renderizarCapitulos(container, capitulos) {
+    if (!container || !capitulos) return;
+
+    capitulos.forEach(capitulo => {
+        const secao = document.createElement('article');
+        secao.className = 'capitulo';
+
+        const cabecalho = document.createElement('header');
+        cabecalho.className = 'capitulo-cabecalho reveal';
+
+        const numero = document.createElement('span');
+        numero.className = 'capitulo-numero';
+        numero.textContent = `Capítulo ${capitulo.numero}`;
+
+        const titulo = document.createElement('h3');
+        titulo.className = 'capitulo-titulo';
+        titulo.textContent = capitulo.titulo;
+
+        const frase = document.createElement('p');
+        frase.className = 'capitulo-frase';
+        frase.textContent = capitulo.frase;
+
+        cabecalho.append(numero, titulo, frase);
+        secao.appendChild(cabecalho);
+
+        // "linhas" diz quantas fotos entram em cada linha; as fotos de uma linha dividem a largura
+        // na proporção da própria forma, então todas ficam com a mesma altura
+        let indice = 0;
+        capitulo.linhas.forEach(quantidade => {
+            const linha = document.createElement('div');
+            linha.className = 'ensaio-linha';
+
+            capitulo.fotos.slice(indice, indice + quantidade).forEach(foto => {
+                linha.appendChild(criarFotoEnsaio(foto, capitulo.titulo));
+            });
+
+            indice += quantidade;
+            secao.appendChild(linha);
+        });
+
+        container.appendChild(secao);
+    });
+
+    observarReveal(container);
+}
+
+function criarFotoEnsaio(foto, tituloCapitulo) {
+    const botao = document.createElement('button');
+    botao.type = 'button';
+    botao.className = 'ensaio-foto reveal';
+    botao.style.flexGrow = foto.largura / foto.altura;
+    botao.setAttribute('aria-label', `Ampliar foto: ${foto.descricao}`);
+
+    const larguraMiniatura = Math.round(foto.largura * ENSAIO_LADO_MINIATURA / Math.max(foto.largura, foto.altura));
+    const img = document.createElement('img');
+    img.src = ENSAIO_PASTA + foto.miniatura;
+    img.srcset = `${ENSAIO_PASTA}${foto.miniatura} ${larguraMiniatura}w, ${ENSAIO_PASTA}${foto.arquivo} ${foto.largura}w`;
+    img.sizes = '(max-width: 768px) 100vw, 50vw';
+    img.alt = foto.descricao;
+    img.width = foto.largura;
+    img.height = foto.altura;
+    img.loading = 'lazy';
+    img.decoding = 'async';
+
+    botao.appendChild(img);
+    botao.addEventListener('click', () => abrirModal(ENSAIO_PASTA + foto.arquivo, foto.descricao, tituloCapitulo));
+    return botao;
+}
+
+// Fade-in as elements enter the viewport
+function observarReveal(container) {
+    const elementos = container.querySelectorAll('.reveal');
+
+    if (!('IntersectionObserver' in window)) {
+        elementos.forEach(el => el.classList.add('visivel'));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entradas) => {
+        entradas.forEach(entrada => {
+            if (entrada.isIntersecting) {
+                entrada.target.classList.add('visivel');
+                observer.unobserve(entrada.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    elementos.forEach(el => observer.observe(el));
+}
+
+// Parallax on the photo dividers: the background drifts slower than the page
+function inicializarParallax() {
+    const divisores = document.querySelectorAll('.divisor');
+    if (divisores.length === 0 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let agendado = false;
+
+    function atualizar() {
+        agendado = false;
+        divisores.forEach(divisor => {
+            const caixa = divisor.getBoundingClientRect();
+            if (caixa.bottom < 0 || caixa.top > window.innerHeight) return;
+
+            // 0 quando o divisor está no centro da tela; limitado à folga de 15% criada no CSS
+            const distancia = caixa.top + caixa.height / 2 - window.innerHeight / 2;
+            const limite = caixa.height * 0.15;
+            const deslocamento = Math.max(-limite, Math.min(limite, -distancia * 0.15));
+            divisor.style.setProperty('--parallax', `${deslocamento.toFixed(1)}px`);
+        });
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!agendado) {
+            agendado = true;
+            requestAnimationFrame(atualizar);
+        }
+    }, { passive: true });
+
+    atualizar();
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     carregarPresentes();
     inicializarGaleria();
     inicializarManual();
+    inicializarEnsaio();
+    inicializarParallax();
 });

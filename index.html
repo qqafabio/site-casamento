@@ -19,6 +19,7 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#evento">Evento</a></li>
                 <li><a href="#manual">Guia do Convidado</a></li>
+                <li><a href="#ensaio">Ensaio</a></li>
                 <li><a href="#galeria">Galeria</a></li>
                 <li><a href="#mural">Mural</a></li>
                 <li><a href="#presentes">Presentes</a></li>
@@ -38,8 +39,15 @@
         </div>
     </section>
 
+    <!-- Photo strip -->
+    <div class="faixa" aria-hidden="true">
+        <div class="faixa-track" id="faixaTrack">
+            <!-- As fotos são carregadas por JavaScript (data/ensaio.json) -->
+        </div>
+    </div>
+
     <!-- Event Information -->
-    <section class="evento" id="evento">
+    <section class="evento tema-escuro" id="evento">
         <div class="container">
             <h2 class="section-title">O Casamento</h2>
 
@@ -80,8 +88,13 @@
         </div>
     </section>
 
+    <!-- Photo divider -->
+    <section class="divisor divisor-estufa" aria-label="Entre tantos caminhos possíveis, escolhemos caminhar juntos.">
+        <blockquote class="divisor-frase">Entre tantos caminhos possíveis,<br>escolhemos caminhar juntos.</blockquote>
+    </section>
+
     <!-- Guest Guide Carousel -->
-    <section class="manual" id="manual">
+    <section class="manual tema-escuro" id="manual">
         <div class="container">
             <h2 class="section-title">Manual do Convidado</h2>
             <p class="manual-subtitle">Algumas orientações para aproveitarmos esse dia juntos</p>
@@ -102,8 +115,19 @@
         </div>
     </section>
 
+    <!-- Pre-wedding photo shoot, organized in chapters -->
+    <section class="ensaio tema-escuro" id="ensaio">
+        <div class="container">
+            <h2 class="section-title">Nosso Ensaio</h2>
+            <p class="ensaio-subtitle">Quatro capítulos de uma mesma história</p>
+            <div id="ensaioCapitulos">
+                <!-- Os capítulos são carregados por JavaScript (data/ensaio.json) -->
+            </div>
+        </div>
+    </section>
+
     <!-- Photo Gallery -->
-    <section class="galeria" id="galeria">
+    <section class="galeria tema-escuro" id="galeria">
         <div class="container">
             <h2 class="section-title">Galeria de Fotos</h2>
             <div class="gallery-grid" id="galleryGrid">
@@ -115,8 +139,13 @@
         </div>
     </section>
 
+    <!-- Photo divider -->
+    <section class="divisor divisor-jardim" aria-label="Faça chuva ou faça sol, é com você que eu quero dividir o guarda-chuva.">
+        <blockquote class="divisor-frase">Faça chuva ou faça sol, é com você<br>que eu quero dividir o <span class="sem-quebra">guarda-chuva</span>.</blockquote>
+    </section>
+
     <!-- Guest Message Board -->
-    <section class="mural" id="mural">
+    <section class="mural tema-escuro" id="mural">
         <div class="container">
             <h2 class="section-title">Mural de Recados</h2>
             <p class="mural-subtitle">Deixe uma mensagem carinhosa para os noivos</p>
@@ -149,6 +178,15 @@
             <div class="presentes-grid" id="presentesGrid">
                 <!-- Os presentes serão carregados por JavaScript -->
             </div>
+        </div>
+    </section>
+
+    <!-- Closing invitation -->
+    <section class="convite" aria-label="Te esperamos no dia 20 de março de 2027">
+        <div class="convite-content">
+            <p class="convite-kicker">Te esperamos</p>
+            <p class="convite-data">20 . 03 . 2027</p>
+            <p class="convite-texto">para viver com a gente o dia mais esperado.</p>
         </div>
     </section>
 

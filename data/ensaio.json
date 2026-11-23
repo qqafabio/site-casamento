@@ -1,0 +1,174 @@
+{
+  "capitulos": [
+    {
+      "numero": "I",
+      "titulo": "Calmaria",
+      "frase": "Antes de qualquer festa, existe o silêncio bom de estar ao seu lado.",
+      "linhas": [2, 2],
+      "fotos": [
+        {
+          "arquivo": "calmaria-1.webp",
+          "miniatura": "calmaria-1-mini.webp",
+          "largura": 1800,
+          "altura": 1200,
+          "descricao": "Cibele e Fábio abraçados ao lado de uma janela de madeira"
+        },
+        {
+          "arquivo": "calmaria-2.webp",
+          "miniatura": "calmaria-2-mini.webp",
+          "largura": 1200,
+          "altura": 1800,
+          "descricao": "Cibele e Fábio abraçados junto à porta de madeira, de olhos fechados"
+        },
+        {
+          "arquivo": "calmaria-3.webp",
+          "miniatura": "calmaria-3-mini.webp",
+          "largura": 1800,
+          "altura": 1200,
+          "descricao": "Cibele sorrindo de olhos fechados, com Fábio apoiado em sua cabeça"
+        },
+        {
+          "arquivo": "calmaria-4.webp",
+          "miniatura": "calmaria-4-mini.webp",
+          "largura": 1800,
+          "altura": 1200,
+          "descricao": "Casal abraçado atrás de uma janela de vidraças em grade"
+        }
+      ]
+    },
+    {
+      "numero": "II",
+      "titulo": "Aconchego",
+      "frase": "Casa é onde o seu abraço me encontra.",
+      "linhas": [2, 3],
+      "fotos": [
+        {
+          "arquivo": "aconchego-1.webp",
+          "miniatura": "aconchego-1-mini.webp",
+          "largura": 1800,
+          "altura": 1200,
+          "descricao": "Cibele e Fábio sorrindo juntos ao lado de uma janela, com palhas decorativas ao fundo"
+        },
+        {
+          "arquivo": "aconchego-2.webp",
+          "miniatura": "aconchego-2-mini.webp",
+          "largura": 1200,
+          "altura": 1800,
+          "descricao": "Retrato do casal abraçado e sorrindo"
+        },
+        {
+          "arquivo": "aconchego-3.webp",
+          "miniatura": "aconchego-3-mini.webp",
+          "largura": 1800,
+          "altura": 1200,
+          "descricao": "Casal deitado sobre mantas, trocando olhares e sorrisos"
+        },
+        {
+          "arquivo": "aconchego-4.webp",
+          "miniatura": "aconchego-4-mini.webp",
+          "largura": 1800,
+          "altura": 1200,
+          "descricao": "Cibele abraça Fábio por trás, ambos sorrindo, deitados sobre uma manta"
+        },
+        {
+          "arquivo": "aconchego-5.webp",
+          "miniatura": "aconchego-5-mini.webp",
+          "largura": 1800,
+          "altura": 1200,
+          "descricao": "Cibele e Fábio com os rostos encostados, de olhos fechados"
+        }
+      ]
+    },
+    {
+      "numero": "III",
+      "titulo": "Entre luzes",
+      "frase": "Quando o dia escurece, a gente acende um ao outro.",
+      "linhas": [2, 3],
+      "fotos": [
+        {
+          "arquivo": "luzes-1.webp",
+          "miniatura": "luzes-1-mini.webp",
+          "largura": 1800,
+          "altura": 1200,
+          "descricao": "Silhueta do casal se beijando sob um varal de luzes, com o campo ao fundo"
+        },
+        {
+          "arquivo": "luzes-2.webp",
+          "miniatura": "luzes-2-mini.webp",
+          "largura": 1200,
+          "altura": 1800,
+          "descricao": "Silhueta do casal se beijando diante do jardim ao entardecer"
+        },
+        {
+          "arquivo": "luzes-3.webp",
+          "miniatura": "luzes-3-mini.webp",
+          "largura": 1800,
+          "altura": 1200,
+          "descricao": "Casal em contraluz se beijando sob lâmpadas penduradas"
+        },
+        {
+          "arquivo": "luzes-4.webp",
+          "miniatura": "luzes-4-mini.webp",
+          "largura": 1800,
+          "altura": 1200,
+          "descricao": "Beijo em contraluz, com os cabelos de Cibele iluminados pelo sol"
+        },
+        {
+          "arquivo": "luzes-5.webp",
+          "miniatura": "luzes-5-mini.webp",
+          "largura": 1800,
+          "altura": 1200,
+          "descricao": "Casal se beijando em silhueta diante de uma janela, em preto e branco"
+        }
+      ]
+    },
+    {
+      "numero": "IV",
+      "titulo": "Pra sempre leve",
+      "frase": "De mãos dadas, até o caminho mais longo fica leve.",
+      "linhas": [2, 2],
+      "fotos": [
+        {
+          "arquivo": "leve-1.webp",
+          "miniatura": "leve-1-mini.webp",
+          "largura": 1800,
+          "altura": 1200,
+          "descricao": "Cibele e Fábio de mãos dadas, rindo, em meio ao jardim"
+        },
+        {
+          "arquivo": "leve-2.webp",
+          "miniatura": "leve-2-mini.webp",
+          "largura": 1800,
+          "altura": 1200,
+          "descricao": "Cibele e Fábio caminhando de mãos dadas pelo gramado"
+        },
+        {
+          "arquivo": "leve-3.webp",
+          "miniatura": "leve-3-mini.webp",
+          "largura": 1800,
+          "altura": 1200,
+          "descricao": "Cibele sorri para Fábio enquanto caminham de mãos dadas"
+        },
+        {
+          "arquivo": "leve-4.webp",
+          "miniatura": "leve-4-mini.webp",
+          "largura": 1800,
+          "altura": 1200,
+          "descricao": "Casal deitado com as cabeças encostadas, visto de cima"
+        }
+      ]
+    }
+  ],
+  "faixa": [
+    "faixa-01.webp",
+    "faixa-02.webp",
+    "faixa-03.webp",
+    "faixa-04.webp",
+    "faixa-05.webp",
+    "faixa-06.webp",
+    "faixa-07.webp",
+    "faixa-08.webp",
+    "faixa-09.webp",
+    "faixa-10.webp"
+  ]
+}

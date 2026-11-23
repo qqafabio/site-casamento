@@ -18,9 +18,11 @@ site-casamento/
 │   └── mural.js            # Mural de recados (Firebase Firestore)
 ├── data/
 │   ├── presentes.json      # Lista de presentes
-│   └── galeria.json        # Fotos e legendas da galeria
+│   ├── galeria.json        # Fotos e legendas da galeria (polaroids)
+│   └── ensaio.json         # Capítulos do ensaio pré-wedding e faixa de fotos
 ├── images/
-│   ├── fotos/              # Fotos do casal / evento
+│   ├── fotos/              # Fotos do casal / evento (galeria polaroid)
+│   ├── ensaio/             # Fotos do ensaio otimizadas (WebP): hero, capítulos, divisores
 │   └── presentes/          # Imagens dos presentes
 └── README.md               # Este arquivo
 ```
@@ -82,7 +84,47 @@ Para atualizar, troque o texto do link e gere a URL com o endereço codificado (
 
 A galeria é carregada dinamicamente por `js/script.js`, no estilo polaroid, com animação e legendas. Ao clicar em uma foto, ela abre ampliada (modal) junto com a legenda.
 
-### 3. **Configurar Lista de Presentes**
+### 3. **Fotos do Ensaio (hero, capítulos, faixa e divisores)**
+
+As fotos do ensaio pré-wedding ficam em `images/ensaio/`, já otimizadas em WebP (os originais têm ~20 MB cada e **não** devem ser colocados no site). Elas aparecem em:
+
+- **Hero** (topo): `hero.webp` (desktop) e `hero-mobile.webp` (recorte vertical para celular), definidos em `css/style.css`
+- **Faixa de fotos** logo abaixo do hero: lista `faixa` de `data/ensaio.json`
+- **Seção "Nosso Ensaio"**: capítulos de `data/ensaio.json`, com mosaico e zoom ao clicar
+- **Divisores com frase** (`divisor-estufa.webp` e `divisor-jardim.webp`), **fundo do mural** (`mural.webp`) e **convite final** (`convite.webp`)
+
+Estrutura de `data/ensaio.json`:
+
+```json
+{
+  "capitulos": [
+    {
+      "numero": "I",
+      "titulo": "Calmaria",
+      "frase": "Frase que aparece abaixo do título do capítulo.",
+      "linhas": [2, 2],
+      "fotos": [
+        {
+          "arquivo": "calmaria-1.webp",
+          "miniatura": "calmaria-1-mini.webp",
+          "largura": 1800,
+          "altura": 1200,
+          "descricao": "Texto alternativo da foto"
+        }
+      ]
+    }
+  ],
+  "faixa": ["faixa-01.webp", "faixa-02.webp"]
+}
+```
+
+- `linhas`: quantas fotos entram em cada linha do mosaico (a soma deve ser igual ao número de fotos do capítulo). As fotos de uma mesma linha ficam com a mesma altura; no celular elas empilham.
+- `largura` / `altura`: dimensões reais do arquivo `arquivo` (evita que a página "pule" enquanto carrega).
+- Para **trocar** uma foto fixa (hero, divisores, mural, convite), substitua o arquivo em `images/ensaio/` mantendo o mesmo nome.
+- As frases dos divisores e do convite final ficam em `index.html` (classes `divisor-frase` e `convite`).
+- Ao adicionar fotos novas, redimensione antes (lado maior de ~1800 px para a foto grande e ~900 px para a miniatura, WebP com qualidade ~75).
+
+### 4. **Configurar Lista de Presentes**
 
 Edite `data/presentes.json`:
 
@@ -107,7 +149,7 @@ Edite `data/presentes.json`:
 - `imagem`: URL da imagem (pode ser local: `images/presentes/foto.jpg`)
 - `link_mercado_livre`: Link do produto no Mercado Livre
 
-### 4. **Editar Cores**
+### 5. **Editar Cores**
 
 Abra `css/style.css` e procure por `:root`:
 
@@ -115,7 +157,9 @@ Abra `css/style.css` e procure por `:root`:
 :root {
     --primary: #B8905F;      /* Dourado - cor principal */
     --secondary: #221F1A;    /* Charcoal - títulos */
-    --dark: #14120F;         /* Quase preto - navbar/hero/rodapé */
+    --dark: #14120F;         /* Quase preto - navbar/hero/rodapé e seções escuras */
+    --dark-2: #1B1814;       /* Preto quente - seções escuras alternadas */
+    --text-soft: #BDB5A7;    /* Texto secundário sobre fundo escuro */
     --light: #F7F3EC;        /* Creme - fundo das seções */
     --white: #FFFFFF;        /* Branco */
     --gray: #6B6B6B;         /* Textos secundários */
@@ -264,8 +308,8 @@ Acesse: `https://seu-usuario.github.io/site-casamento`
 
 - **Dourado (#B8905F)**: Cor principal, elegância e destaque
 - **Charcoal (#221F1A)**: Títulos e contraste
-- **Quase preto (#14120F)**: Navbar, hero e rodapé
-- **Creme (#F7F3EC)**: Fundo das seções
+- **Quase preto (#14120F / #1B1814)**: Navbar, hero, rodapé e seções escuras (Evento, Manual, Ensaio, Galeria e Mural usam a classe `tema-escuro`)
+- **Creme (#F7F3EC)**: Fundo da seção de presentes
 - **Terracota (#C1502E)**: Destaques, hover e valores
 - **Branco (#FFFFFF)**: Limpeza e clareza
 
@@ -290,6 +334,11 @@ O site é totalmente responsivo:
 ### Fotos ou legendas da galeria não aparecem
 - Verifique se o campo `arquivo` em `data/galeria.json` bate exatamente com o nome do arquivo em `images/fotos/` (incluindo maiúsculas/minúsculas e espaços)
 - Abra o console do navegador (F12) para ver erros de carregamento
+- Certifique-se de executar em um servidor local, não diretamente do arquivo
+
+### Fotos do ensaio não aparecem
+- Verifique se os nomes em `data/ensaio.json` (`arquivo`, `miniatura` e `faixa`) batem com os arquivos de `images/ensaio/`
+- Confira se a soma dos valores de `linhas` é igual ao número de `fotos` do capítulo
 - Certifique-se de executar em um servidor local, não diretamente do arquivo
 
 ### Links do Mercado Livre não funcionam
@@ -325,6 +374,7 @@ Consulte os comentários no código:
 - `js/mural.js` - Mural de recados (Firebase)
 - `data/presentes.json` - Dados dos presentes
 - `data/galeria.json` - Fotos e legendas da galeria
+- `data/ensaio.json` - Capítulos e fotos do ensaio pré-wedding
 
 ---
 
