@@ -15,7 +15,10 @@ site-casamento/
 │   └── style.css           # Estilos (Dourado + Charcoal + Terracota)
 ├── js/
 │   ├── script.js           # Navegação, galeria e presentes
-│   └── mural.js            # Mural de recados (Firebase Firestore)
+│   ├── mural.js            # Mural de recados (Firebase Firestore)
+│   └── rsvp.js             # Modal de confirmação de presença (envia para o Apps Script)
+├── apps-script/
+│   └── confirmacoes.gs     # Script do Google que grava as confirmações na planilha
 ├── data/
 │   ├── presentes.json      # Lista de presentes
 │   ├── galeria.json        # Fotos e legendas da galeria (polaroids)
@@ -242,6 +245,73 @@ A partir daí, mesmo que alguém copie a `apiKey` do código-fonte público, ela
 
 ---
 
+## ✅ Confirmação de Presença (RSVP)
+
+O site tem um modal "Confirme sua presença" (campos: nome, grupo, vai ao evento, telefone, e-mail e acompanhantes por faixa etária). Ele abre sozinho na primeira visita e fica sempre acessível pelo botão fixo **Confirmar presença**, no canto da tela. As respostas são gravadas na aba **CONFIRMAÇÕES** da planilha do Google, por meio de um **Google Apps Script** (o site é estático e não tem servidor próprio).
+
+```
+Site (modal) --POST--> Apps Script (App da Web) --grava--> planilha, aba CONFIRMAÇÕES
+```
+
+### Passo 1: Criar o script na planilha
+
+1. Abra a planilha no Google Sheets e vá em **Extensões → Apps Script**
+2. Apague o conteúdo do editor e cole o conteúdo de `apps-script/confirmacoes.gs`. Salve (ex.: projeto "Confirmações")
+
+### Passo 2: Publicar como App da Web
+
+1. Clique em **Implantar → Nova implantação** e escolha o tipo **App da Web**
+2. Em **Executar como**, deixe **Eu**; em **Quem pode acessar**, escolha **Qualquer pessoa**
+3. Clique em **Implantar** e autorize o acesso (o Google avisa que o app "não foi verificado": é o seu próprio script, clique em **Avançado → Acessar ... (não seguro)**)
+4. Copie a **URL do app da Web** (termina em `/exec`)
+
+### Passo 3: Colar a URL no site
+
+Abra `js/rsvp.js` e substitua o valor de `ENDPOINT`:
+
+```javascript
+const ENDPOINT = 'https://script.google.com/macros/s/SEU_ID/exec';
+```
+
+Enquanto o valor original (`COLE_AQUI_...`) não for substituído, o modal abre normalmente, mas o envio mostra um aviso de "não configurado".
+
+Para conferir o script, abra a URL `/exec` no navegador: deve aparecer `{"ok":true,"servico":"confirmacoes-casamento"}`. Depois envie uma resposta de teste pelo site e **apague a linha de teste** da planilha.
+
+### Aba CONFIRMAÇÕES
+
+- O nome da aba precisa ser exatamente **CONFIRMAÇÕES**. Se ela não existir, o script cria.
+- Deixe a **linha 1 vazia**: o script escreve o cabeçalho sozinho. Se a linha 1 já tiver outro conteúdo, o script **não grava** (para não bagunçar a aba) e registra um erro; nesse caso, deixe a linha 1 exatamente com estes títulos, nesta ordem:
+
+| Coluna | Conteúdo |
+|---|---|
+| A | Primeira resposta |
+| B | Última atualização |
+| C | Nome |
+| D | Grupo |
+| E | Vai ao evento? |
+| F | Telefone |
+| G | E-mail |
+| H | Adultos (acima de 11 anos) |
+| I | Crianças (6 a 10 anos) |
+| J | Crianças (até 5 anos) |
+| K | Nomes dos acompanhantes |
+| L | Total de pessoas |
+
+- Cada resposta vira **uma linha**. O **Total de pessoas** é o convidado mais os acompanhantes (0 quando a resposta é "Não").
+- Se a mesma pessoa responder de novo com o **mesmo telefone**, a linha existente é atualizada em vez de duplicada (a coluna A mantém a data da primeira resposta).
+
+### Atualizar o script depois
+
+Depois de editar o código no Apps Script, vá em **Implantar → Gerenciar implantações**, edite a implantação e escolha **Nova versão**. A URL continua a mesma.
+
+### Segurança e privacidade
+
+- A URL do script fica visível no código do site, então qualquer pessoa poderia tentar enviar dados para ela. Por isso o script valida tudo, ignora o campo-isca (honeypot), recusa envios rápidos demais e limita a 30 respostas por minuto.
+- O script **só grava**: ele nunca devolve a lista de confirmados. Telefones e e-mails ficam apenas na planilha, que só quem tem acesso a ela consegue ver.
+- Textos digitados são gravados como texto puro, então nada que comece com `=` vira fórmula.
+
+---
+
 ## 🛒 Integração com Mercado Livre
 
 ### Passo 1: Criar Produtos no Mercado Livre
@@ -341,6 +411,12 @@ O site é totalmente responsivo:
 - Confira se a soma dos valores de `linhas` é igual ao número de `fotos` do capítulo
 - Certifique-se de executar em um servidor local, não diretamente do arquivo
 
+### Confirmação de presença não envia
+- Verifique se `ENDPOINT` em `js/rsvp.js` foi substituído pela URL `/exec` do App da Web
+- Confira se a implantação está com acesso **Qualquer pessoa** e se a URL abre no navegador mostrando `{"ok":true,...}`
+- Se a aba CONFIRMAÇÕES já tinha conteúdo na linha 1, deixe a linha 1 vazia ou igual ao cabeçalho do README (veja os logs em Apps Script → Execuções)
+- Depois de editar o script, publique uma **nova versão** da implantação
+
 ### Links do Mercado Livre não funcionam
 - Copie o link completo do produto
 - Teste o link diretamente no navegador antes de adicionar
@@ -372,6 +448,8 @@ Consulte os comentários no código:
 - `css/style.css` - Estilos
 - `js/script.js` - Navegação, galeria e presentes
 - `js/mural.js` - Mural de recados (Firebase)
+- `js/rsvp.js` - Modal de confirmação de presença
+- `apps-script/confirmacoes.gs` - Gravação das confirmações na planilha
 - `data/presentes.json` - Dados dos presentes
 - `data/galeria.json` - Fotos e legendas da galeria
 - `data/ensaio.json` - Capítulos e fotos do ensaio pré-wedding
