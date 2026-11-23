@@ -299,7 +299,6 @@ a:hover {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--spacing-md);
-    margin-bottom: var(--spacing-xl);
 }
 
 .evento-card {
@@ -319,13 +318,6 @@ a:hover {
 .evento-card .icon {
     font-size: 2.5rem;
     margin-bottom: var(--spacing-sm);
-}
-
-.evento-description {
-    background-color: var(--white);
-    padding: var(--spacing-lg);
-    border-radius: var(--border-radius);
-    border-left: 4px solid var(--primary);
 }
 
 /* Guest Guide Carousel */
@@ -913,11 +905,6 @@ a:hover {
 
 .tema-escuro .evento-card:hover {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-}
-
-.tema-escuro .evento-description {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-left-color: var(--primary);
 }
 
 .tema-escuro .manual-dot {
