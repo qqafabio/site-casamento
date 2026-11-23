@@ -1388,6 +1388,23 @@ body.rsvp-aberto .rsvp-fab {
     margin-bottom: 0.3rem;
 }
 
+.rsvp-prazo {
+    margin: var(--spacing-sm) 0 0;
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(193, 80, 46, 0.35);
+    border-left: 4px solid var(--terracotta);
+    border-radius: 4px;
+    background-color: rgba(193, 80, 46, 0.1);
+    font-size: 1rem;
+    color: var(--secondary);
+}
+
+.rsvp-prazo strong {
+    font-size: 1.1rem;
+    color: var(--terracotta);
+    white-space: nowrap;
+}
+
 /* RSVP: form fields */
 .rsvp-campo {
     margin-bottom: var(--spacing-sm);
