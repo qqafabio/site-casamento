@@ -1870,10 +1870,6 @@ body.rsvp-aberto .rsvp-fab {
         padding: 4rem var(--spacing-md) var(--spacing-xl);
     }
 
-    .divisor-jardim .divisor-frase br {
-        display: none;
-    }
-
     .divisor-jardim::after {
         background: linear-gradient(180deg, rgba(10, 9, 8, 0.8) 0%, rgba(10, 9, 8, 0.4) 55%, rgba(10, 9, 8, 0.1) 100%);
     }
